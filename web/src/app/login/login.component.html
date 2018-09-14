@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="./assets/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        
+        <form class="form-signin" #f="ngForm" (ngSubmit)="onSubmit(f)">
+           <!-- <span id="reauth-email" class="reauth-email"></span>-->
+            <div class="alert alert-danger" 
+                 *ngIf="userName.touched && !userName.valid">
+                    Please enter a valid username
+            </div>
+            
+            <div class="alert alert-danger" 
+                 *ngIf="password.touched && !password.valid">
+                    Please enter the password
+            </div>
+            
+            <div class="alert alert-danger" 
+                 *ngIf="!loggedIn">
+                    Invalid Credentials
+            </div>
+
+            <input type="email" 
+                    ngModel name="userName" 
+                    #userName="ngModel" 
+                    placeholder="Username" 
+                    required autofocus>
+                      
+            <input type="password" 
+                   ngModel name="password" 
+                   #password="ngModel" 
+                   placeholder="Password" 
+                   required autofocus>
+            
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            
+            <button class="btn btn-lg btn-primary btn-block btn-signin" 
+                    type="submit">Sign in
+            </button>
+        </form>
+        
+        <a href="#" class="forgot-password">
+            Forgot the password?
+        </a>
+    </div>
+</div>
