@@ -4,7 +4,7 @@ import {Http} from '@angular/http'
 
 @Injectable()
 export class HttpService {
-  BASE_URL : String = "http://localhost:8080/"; 
+  BASE_URL : String = "https://jsonplaceholder.typicode.com/"; 
   constructor(private _http : Http) { }
 
   get(url) {

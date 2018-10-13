@@ -1,3 +1,5 @@
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,9 +13,7 @@ import { CheckinComponent } from './checkin/checkin/checkin.component';
 import { ConfirmcheckinComponent } from './checkin/confirmcheckin/confirmcheckin.component';
 import { HttpService } from './services/http.service';
 import { PostService } from './services/post.service';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import { ToasterService } from './services/toaster.service'
-
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -28,11 +28,13 @@ import { ToasterService } from './services/toaster.service'
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(ROUTES),
-    ToastModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   
-  providers: [HttpService, PostService, ToasterService],
+  providers: [HttpService, PostService],
   
   bootstrap: [AppComponent]
 })
